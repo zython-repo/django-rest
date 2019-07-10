@@ -1,0 +1,44 @@
+import Vue from 'vue';
+import Router from 'vue-router';
+import Knock from './views/Knock_Knock.vue';
+import Main from './views/Main.vue';
+import Detail from './views/Detail.vue';
+import Search from './views/Search_list.vue';
+import NotFound from './views/NotFound.vue';
+
+Vue.use(Router);
+
+export default new Router({
+  mode: "history",
+  routes: [
+    {
+      path: "/",
+      name: "Thumnail",
+      component: Knock,
+    },
+    {
+      path: "/main",
+      name: "Main",
+      component: Main,
+      props: true
+    },
+    {
+      path: "/detail/:tag",
+      name: "Detail",
+      component: Detail,
+      props: true
+    },
+    {
+      path: "/search/:title",
+      name: "Search",
+      component: Search,
+      props: true
+    },
+    {
+      path: "*",
+      name: "page-not-found",
+      component: NotFound
+    }
+  ]
+});
+

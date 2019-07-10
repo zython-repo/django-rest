@@ -1,0 +1,36 @@
+from rest_framework import generics, viewsets, filters
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from django.views.generic.base import TemplateView
+from django.http import Http404
+from .serializers import ListSerializer
+from .models import BoardList
+
+# Create your views here.
+class IndexTemplateView(TemplateView):
+
+    def get_template_names(self):
+        template_name = 'index.html'
+        return template_name
+
+class ListViewSet(viewsets.ModelViewSet):
+    queryset = BoardList.objects.all().order_by('-created_at')
+    serializer_class = ListSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('tag', 'title')
+   
+    def perform_create(self, serializer):
+        serializer.save()
+
+class DetailView(APIView):
+    
+    def get_object(self, pk):
+        try:
+            return BoardList.objects.get(pk=pk)
+        except BoardList.DoesNotExist:
+            raise Http404
+
+    def get(self, request, tag):
+        detail = self.get_object(pk=tag)
+        serializer = ListSerializer(detail)
+        return Response(serializer.data)
