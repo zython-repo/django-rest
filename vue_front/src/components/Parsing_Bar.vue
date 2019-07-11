@@ -21,7 +21,7 @@
 				const reader = new FileReader();
 
 				reader.onload = key => this.$emit('load', key.target.result);
-				reader.readAsText(file);
+				reader.readAsText(file, 'UTF-8');
 			},
 		}
 }

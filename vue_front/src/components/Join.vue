@@ -1,6 +1,5 @@
 <template>
 	<div class="top_menu">
-		<img :src="cappu" v-on:click="move">
 		<h3 v-on:click="move">CAPPUCCINO</h3>
 	</div>
 </template>

@@ -5,8 +5,10 @@
 			<input type="text" v-model="searchKey" v-on:keyup="getSearch" placeholder="search title!" />
 		</div>
 		<div class='parsing_bar' v-show="listType === 'parse'">
-			{{ title }}
-			<setFile class='main_parse' @load='title = $event'></setFile>
+			<div class="parsing_title">
+				{{ title }}
+			</div>
+			<setFile class='main_parse' @load='getParse'></setFile>
 		</div>
 		<div class='' v-show="listType === 'hi'">
 			Handshake only
@@ -73,7 +75,11 @@ export default {
 			this.getGoal(endpoint)
 		},
 		getParse(title) {
-			alert('' + title);
+			this.title = title;
+			this.lists = [];
+			this.next = null;	
+			let endpoint = `/api/rest_back/?search=${this.title}`;
+			this.getGoal(endpoint)
 		},
 		getGoal(endpoint) {
 			if (this.next) {
@@ -129,6 +135,9 @@ export default {
 	font-size: 30px;
 	font-weight: 800;
 	color: #ecad39;
+}
+.parsing_title {
+	font-family: 'Indie Flower', cursive;
 }
 .top_menu {
 	position: relative;
