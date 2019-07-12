@@ -1,5 +1,7 @@
 <template>
 	<div class="Detail_Home">
+		<Mov></Mov>
+		<h1>EZ_Frist!!</h1>
 		<div v-if='list' class="result_style">
 			<div class="title_Box">
 				<h1>{{ list.title }}</h1>
@@ -17,6 +19,7 @@
 
 <script>
 	import { apiService } from '@/common/api.service.js';
+import Mov from '@/components/Move_Bar.vue'
 
 export default {
 	name: 'Detail',
@@ -30,6 +33,9 @@ export default {
 		return {
 			list: {}
 		}
+	},
+	components: {
+		Mov
 	},
 	methods: {
 		setPageTitle(title) {
@@ -56,6 +62,11 @@ export default {
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+.Detail_Home h1 {
+	font-family: 'Indie Flower', cursive;
+	color: #BE800E;
+}
 
 /*.title_Box {
 	position: relative;
