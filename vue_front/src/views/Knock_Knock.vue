@@ -38,6 +38,19 @@ export default {
 	height: 50px;
 	margin:auto;
 }
+.result a {
+	color: black;
+	background-color: transparent;
+	font-family: Indie Flower,cursive;
+	font-size: -webkit-xxx-large;
+}
+.result a:hover {
+	color: #BE800E;
+	text-decoration: none;
+	background-color: transparent;
+	font-family: Indie Flower,cursive;
+	font-size: -webkit-xxx-large;
+}
 .keyword {
 	text-align: center;
 	top: 12px;

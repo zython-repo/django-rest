@@ -123,7 +123,16 @@ export default {
 	top: 15px;
 	float: left;
 }
-.search_bar {
+.search_bar input {
+	font-family: 'Indie Flower', cursive;
+	font-size: xx-large;
+	width: 500px;
+	text-align: center;
+	border-style: none;
+	border-radius: 7px;
+}
+.search_bar input:focus {
+	outline-color: #BE800E;
 }
 .main_parse {
 	position: initial;
@@ -138,6 +147,7 @@ export default {
 }
 .parsing_title {
 	font-family: 'Indie Flower', cursive;
+	font-size: xx-large;
 }
 .top_menu {
 	position: relative;
@@ -152,6 +162,7 @@ export default {
 }
 .list-link {
 	color: #BE800E;
+	padding: 5.7px;
 }
 .list-link:hover {
 	text-decoration: none;
@@ -186,6 +197,7 @@ export default {
 }
 .btn-more {
 	color: #BE800E;
+	outline-color: #BE800E;
 }
 .btn-more:hover {
 	color: #BE800E;
